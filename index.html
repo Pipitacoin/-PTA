@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Website</title>
+  <style>
+    /* Stili generali */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d30; /* Blu scuro */
+      color: white;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    /* Banner sopra la navbar */
+    .banner {
+      width: 100%;
+      background-color: #8a2be2; /* Colore banner */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Barra di navigazione */
+    nav {
+      text-align: center;
+      background-color: #1a1a33;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #8a2be2;
+    }
+
+    /* Header (Immagine del token) */
+    header {
+      text-align: center;
+      position: relative;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+
+    .token-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Sezione Market Cap */
+    #market-cap {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .progress-bar-container {
+      width: 80%;
+      background-color: #333;
+      border-radius: 25px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .progress-bar {
+      width: 0%; /* La barra inizia vuota */
+      height: 30px;
+      background-color: #8a2be2; /* Viola */
+      border-radius: 25px;
+      transition: width 1s ease;
+      box-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
+    }
+
+    .milestone-line {
+      position: absolute;
+      top: -5px;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      z-index: 1;
+    }
+
+    .milestone {
+      position: absolute;
+      top: -10px;
+      width: 2px;
+      height: 10px;
+      background-color: white;
+    }
+
+    .milestone-label {
+      position: absolute;
+      top: -30px;
+      color: white;
+      font-size: 14px;
+    }
+
+    #market-cap h3 {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    /* Sezione Info */
+    #info {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #14142b;
+      margin-top: 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    #info h2 {
+      font-size: 30px;
+      color: #8a2be2;
+    }
+
+    #info p {
+      font-size: 18px;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    #info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #info li {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    /* Sezione Social Links */
+    #social-links {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #social-links h3 {
+      font-size: 25px;
+      color: #8a2be2;
+    }
+
+    #social-links a {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 25px;
+      background-color: #8a2be2;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    #social-links a:hover {
+      background-color: #6a1db8;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #1a1a33;
+      color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .token-image {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #social-links a {
+        padding: 10px 20px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <div class="banner">
+    <p>Welcome to Our Token Project! Join us in the revolution of cryptocurrency!</p>
+  </div>
+
+  <!-- Barra di navigazione -->
+  <nav>
+    <a href="#market-cap">Market Cap</a>
+    <a href="#info">About</a>
+    <a href="#social-links">Follow Us</a>
+  </nav>
+
+  <header>
+    <!-- Aggiungi il percorso della tua immagine del token qui -->
+    <img src="PTA.png" alt="Token" class="token-image">
+  </header>
+
+  <!-- Sezione Market Cap -->
+  <section id="market-cap">
+    <h2>Market Cap</h2>
+    <div class="progress-bar-container">
+      <div class="milestone-line"></div>
+      <div class="milestone" style="left: 0%"></div>
+      <div class="milestone" style="left: 20%"></div>
+      <div class="milestone" style="left: 40%"></div>
+      <div class="milestone" style="left: 60%"></div>
+      <div class="milestone" style="left: 80%"></div>
+      <div class="milestone" style="left: 100%"></div>
+      <div class="progress-bar" id="progress-bar"></div>
+      
+      <!-- Etichette dei traguardi sopra le linee -->
+      <div class="milestone-label" style="left: 0%;">5k</div>
+      <div class="milestone-label" style="left: 20%;">10k</div>
+      <div class="milestone-label" style="left: 40%;">20k</div>
+      <div class="milestone-label" style="left: 60%;">50k</div>
+      <div class="milestone-label" style="left: 80%;">75k</div>
+      <div class="milestone-label" style="left: 100%;">100k</div>
+    </div>
+  </section>
+
+  <!-- Sezione Info -->
+<section id="info">
+    <h2>About the Token</h2>
+    <p>Il nostro token è progettato per portare innovazione e trasparenza nel mondo delle criptovalute. Con un obiettivo a lungo termine di creare una comunità forte e supportata da una solida roadmap, stiamo cercando di garantire un futuro prospero per i nostri investitori e utenti.</p>
+    
+    <h3>Roadmap</h3>
+    <ul>
+      <li><strong>Fase 1:</strong> Lancio iniziale e costruzione della comunità.</li>
+      <li><strong>Fase 2:</strong> Integrazione con piattaforme di scambio e creazione di incentivi per gli holder.</li>
+      <li><strong>Fase 3:</strong> Sviluppo di partnership e espansione del progetto.</li>
+      <li><strong>Fase 4:</strong> Listaggio su piattaforme maggiori e promozione globale.</li>
+    </ul>
+  
+    <h3>Traguardi Speciali: Rilasci di Pipita in Edizione Limitata</h3>
+    <p>Ogni traguardo raggiunto nel nostro viaggio verso il successo sarà celebrato in grande stile! Per ogni milestone del nostro market cap, rilasceremo una <strong>Limited Edition</strong> dell'immagine di <strong>Pipita</strong>, il cane simbolo del nostro token. Questo sarà un esclusivo omaggio per tutti i nostri sostenitori e membri della community.</p>
+  
+    <p>Queste immagini saranno distribuite solo attraverso i nostri canali ufficiali di <strong>Telegram</strong> e <strong>Twitter</strong>, quindi unisciti a noi per non perderti mai un aggiornamento e per poter ottenere queste edizioni rare di Pipita! Ogni immagine sarà unica e rappresenterà un passo importante nel nostro viaggio verso la crescita e il successo.</p>
+  
+    <p><strong>Non perdere l'occasione di collezionarle tutte!</strong></p>
+  </section>
+
+  <!-- Sezione Social Links -->
+  <section id="social-links">
+    <h3>Seguici su:</h3>
+    <!-- Aggiungi i link social reali -->
+    <a href="t.me/PipitaCoin" target="_blank">Telegram</a>
+    <a href="your-dextscanner-link" target="_blank">DextScanner</a>
+    <a href="https://x.com/pipitacoin" target="_blank">X</a>
+    <a href="your-coingecko-link" target="_blank">CoinGecko</a>
+  </section>
+
+  <footer>
+    <p>Token Website - 2025</p>
+  </footer>
+
+  <script>
+    // Funzione per ottenere il market cap dal CoinGecko API
+    async function updateProgressBar() {
+      const tokenId = 'link-on-sol'; // ID del token, cambialo quando avrai il tuo token
+      const url = `https://api.coingecko.com/api/v3/coins/${tokenId}`;
+  
+      try {
+        // Richiesta all'API per ottenere i dati
+        const response = await fetch(url);
+        const data = await response.json();
+  
+        // Estrazione del market cap dal JSON (in USD)
+        const marketCap = data.market_data.market_cap.usd;
+        const targetMarketCap = 100000; // 100k Market Cap
+  
+        // Definisci i traguardi: 5k, 10k, 20k, 50k, 75k, 100k
+        const milestones = [5000, 10000, 20000, 50000, 75000, 100000];
+  
+        // Calcola il progresso in percentuale
+        let progress = (marketCap / targetMarketCap) * 100;
+        progress = progress > 100 ? 100 : progress; // Non far superare il 100%
+  
+        // Aggiorna la barra di progressione con il market cap ottenuto
+        document.getElementById('progress-bar').style.width = progress + '%';
+        document.getElementById('progress-bar').setAttribute('title', `$${marketCap.toLocaleString()}`);
+  
+        // Aggiungi le etichette sopra la barra per ogni traguardo
+        const milestonesContainer = document.getElementById('milestones');
+        milestonesContainer.innerHTML = ''; // Pulisce gli eventuali traguardi precedenti
+        milestones.forEach((milestone, index) => {
+          const milestoneElement = document.createElement('div');
+          milestoneElement.classList.add('milestone');
+          milestoneElement.style.left = (milestone / targetMarketCap) * 100 + '%'; // Posizione relativa per la barra
+          milestoneElement.innerText = `$${milestone}`;
+          milestonesContainer.appendChild(milestoneElement);
+        });
+  
+      } catch (error) {
+        console.error('Errore nel recuperare i dati del market cap:', error);
+      }
+    }
+  
+    // Avvia l'animazione della barra di progressione
+    window.onload = updateProgressBar;
+  </script>
+  
+</body>
+</html>
